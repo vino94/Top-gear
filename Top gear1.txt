@@ -1,0 +1,162 @@
+factortial of N (without loop)
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Factorial
+{
+     static int fact(int n){
+      if(n<=1)
+return 1;
+return n*=fact(n-1);
+}
+public static void main(String args[]){
+ int f=fact(10);
+System.out.println(f);
+}
+}
+-----------------------------------------------------------------------------
+
+Polymorphism
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Animal {
+    public void shout(){
+    System.out.println("Animal shouts");
+    } }
+class Dog extends Animal{
+     public void shout(){
+    System.out.println("Dog barks");
+    }
+}
+class Horse extends Animal{
+     public void shout(){
+    System.out.println("Horse neighs");
+    }
+}
+class Cat extends Animal{
+     public void shout(){
+    System.out.println("Cat meows");
+    }
+}
+Creating a another Demo class to call ;
+public class Demo{
+    public static void main(String[] args){
+        Animal a1=new Dog();
+        a1.shout();
+        Animal a2=new Horse();
+        a2.shout();
+        Animal a3=new Cat();
+        a3.shout();
+    }
+}
+
+--------------------------------------------------------------------------
+
+Abstract class
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+abstract class Instruement{    
+abstract void play();    
+}    
+
+class Flute extends Instruement{    
+      @Override
+      	void play(){
+    	  	System.out.println("Flute is playing  toot toot toot toot");
+      	}
+      }
+class Guitar extends Instruement{    
+      @Override
+      void play(){
+    	  System.out.println("Guitar is playing  tin  tin  tin ");
+
+}
+}
+class Piano extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing  tan tan tan tan");
+    }
+ }
+class Veena extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Veena is playing  toi toi");
+    }
+ }
+class Tabla extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing  tab tab tab tab");
+    }
+ }
+class Sitar extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing  cling cling");
+    }
+ }
+class Melam extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing  tang tang tang tang");
+    }
+ }
+class Sangu extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing  oooo ooo oo");
+    }
+ }
+class Drum extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing dam dam dam");
+    }
+ }
+class violin extends Instruement{ 
+    @Override
+    void play(){
+    	 System.out.println("Piano is playing  soing soing soing");
+    }
+ }
+
+
+
+
+Creating an another main class:
+    
+
+  
+public class service {
+	public static void main(String args[]){    
+		Instruement b;  
+		b=new Piano();
+		b.play();
+		b=new Flute();  
+		b.play();
+		b=new Guitar();
+		b.play();
+		//Instruement[]inst = new Instruement[10];
+		//inst[2].play();
+		Instruement b1[] = {new Piano(),new Flute(),new Guitar(),new Veena(),new Tabla(),new Sitar(), new Melam(), new Sangu(),new Drum(),new violin()};
+		b1[0].play();
+		b1[1].play();
+		b1[2].play();
+		b1[3].play();
+		b1[4].play();
+		b1[5].play();
+		b1[6].play();
+		b1[7].play();
+		b1[8].play();
+		b1[9].play();
+		
+}
+}
+--------------------------------------------------------------------------

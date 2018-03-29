@@ -1,0 +1,186 @@
+import java.util.Scanner;
+
+
+public class Ag {
+	
+
+
+
+	public static void main ( String[] args ) throws InvalidAgeException 
+	{
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter your name");
+		String b=sc.nextLine();
+		System.out.println("Enter your Age");
+		int a = sc.nextInt();
+		try{
+		if(a>=18 && a<60){
+			System.out.println("your age is valid");
+			}
+		else{
+			
+				throw new InvalidAgeException("Your age is invalid");
+			
+			
+			}
+		
+	}catch(InvalidAgeException e)
+	{
+		e.printStackTrace();
+		System.out.println(e.getMessage());
+	}
+	}
+	}
+------------------------------------------------------------------------
+
+creating a custom defined exception class:
+
+class InvalidAgeException extends Exception{  
+ public InvalidAgeException(String string) {
+	 super(string);
+	 super.getMessage();
+
+	}
+
+------------------------------------------------------------------------
+
+ Thread class:
+
+import java.util.Date;
+public class te extends Thread{  
+	  public void run(){  
+		   System.out.println("running...");  
+		  }  
+	  private volatile static boolean flag = true;
+	  public void stopRunning()
+	    {
+	        flag = false;
+	    }
+		 public static void main(String args[]){  
+			
+			 te t1=new te();  
+		
+		  System.out.println("Name of t1:"+t1.getName());  
+		
+		  t1.start();  
+	   
+		  t1.setName("MyThreads");  
+		  System.out.println("After changing name of t1:"+t1.getName());
+		
+		 
+		  try {
+			  while(flag)
+			  {
+				  Date today = new Date();
+				  System.out.println("Current Time and Date :"+today.toString());
+				  Thread.sleep(10000);
+				  
+			  }
+			  System.out.println("Stopped Running....");
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+		t1.stopRunning();
+	    
+		 }  
+		}  
+ 
+------------------------------------------------------------------------
+
+Arraylist
+
+
+
+	import java.util.*;  
+	public class testd{  
+	 public static void main(String args[]){  
+		 Scanner sc = new Scanner(System.in);
+	  //Creating user-defined class objects  
+	  emp s1=new emp(101,"vino","aasxv",27000);  
+	  emp s2=new emp(102,"Ravi","swxdcv",21000);  
+	  emp s3=new emp(103,"Hanumat","busbc",25000);  
+	  //creating arraylist  
+	  ArrayList<emp> al=new ArrayList<emp>();  
+	  al.add(s1);//adding Student class object  
+	  al.add(s2);  
+	  al.add(s3);  
+	  //Getting Iterator  
+	  Iterator itr=al.iterator();  
+	  //traversing elements of ArrayList object  
+	  while(itr.hasNext()){  
+		  emp st=(emp)itr.next();  
+	    System.out.println(st.id+" "+st.name+" "+st.address+" "+st.salary);  
+	  }
+	  System.out.println("Enter name to be searched");
+	  
+	  String name1=sc.next();
+	  System.out.println("Enter id to be searched");
+	  
+	  int id=sc.nextInt();
+	  for (int i=0;i<=al.size();i++)
+	  {
+		  if(al.get(i).getName().equals(name1)&& al.get(i).getId()==id)
+		  {
+			  System.out.println("Address :"+al.get(i).getAddress());
+			  System.out.println("sal :"+al.get(i).getSalary());
+			  break;
+		  }
+	  }
+	   
+	 }  
+	}  
+
+------------------------------------------------------------------------
+
+Creating a employee bean class object:
+
+
+public class emp {
+int id;
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public String getAddress() {
+	return address;
+}
+
+public void setAddress(String address) {
+	this.address = address;
+}
+
+public float getSalary() {
+	return salary;
+}
+
+public void setSalary(float salary) {
+	this.salary = salary;
+}
+
+String name;
+String address;
+float salary;
+
+emp(int i,String a,String b, float c){
+	this.id=i;
+	this.name=a;
+	this.address=b;
+	this.salary=c;
+}
+
+}
