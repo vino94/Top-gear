@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, td, th  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<body>
+<div style="color:red">Q7 Display CD and routes to All CDs and new CDs</div>
+<div ng-app="myApp7" ng-controller="multiCD">
+<h2>Top 5 Rated CD's of the week</h2>
+<table>
+	<tr>
+		<th>CD Title</th>
+		<th>CD Lang</th>
+		<th>CD Price</th>
+	</tr>
+	<tr ng-repeat="x in CD">
+		<td ng-if="$odd" >
+			{{ x.title }}
+		</td>
+		<td ng-if="$even" style="background-color:#f1f1f1">
+			{{ x.title }}
+		</td>
+		<td ng-if="$odd" >
+			{{ x.language }}
+		</td>
+		<td ng-if="$even" style="background-color:#f1f1f1">
+			{{ x.language }}
+		</td>
+		<td ng-if="$odd" >
+			{{ x.price }}
+		</td>
+		<td ng-if="$even" style="background-color:#f1f1f1">
+			{{ x.price }}
+		</td>
+	</tr>
+</table>
+<a href='#'>Main</a>
+<a href='#!/allCD'>View All CDs</a><br/>
+<a href='#!/newCD'>View New CDs</a><br/>
+<div ng-view></div>
+<script>
+	var app = angular.module('myApp7', ["ngRoute"]);
+	app.config(function($routeProvider){
+		$routeProvider
+		.when("/allCD",{
+			templateUrl:"allCD.html"
+			
+		})
+		.when("/newCD",{
+			templateUrl:"newCD.html"
+		});
+	});
+	app.controller('multiCD', function($scope) {
+		$scope.CD=[
+			{title:"A",language:"Hindi",price:"100"},
+			{title:"B",language:"English",price:"200"},
+			{title:"C",language:"Hindi",price:"300"},
+			{title:"D",language:"English",price:"400"},
+			{title:"E",language:"Hibru",price:"500"},
+		];
+	});
+</script>
+</div>
+</html>

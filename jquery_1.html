@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta charset="utf-8" />
+	<title>Checkbox</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <h1 style="font-size:1em">Disable button assignment </h1>
+    <div border>
+        <div class="container">
+       
+                <div class="row">
+                        <div class="col">  
+                            <form id="form1">  
+                                <fieldset> 
+                                    <legend>Favourite fruit(s)</legend>         
+                                    <div class="form-group">
+                                           
+                                            <input type="checkbox" id="chk1" name="fruit" class="chk1">
+                                            <label for="chk1">Apple</label>
+                                        </div>
+                                        <div class="form-group">
+                                             
+                                                <input type="checkbox"  id="chk2" name="fruit" class="chk1">
+                                                <label for="chk2">Mango</label>
+                                            </div>
+                                            <div class="form-group">
+                                                  
+                                                    <input type="checkbox"  id="chk3" name="fruit" class="chk1">
+                                                    <label for="chk3">Banana</label>
+                                                </div>
+                                            </fieldset>    
+                                            
+                                          
+                                         
+                                          <button id="submit">Submit</button>
+                              </form></div>
+                        </div>
+                       
+                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	
+    $(document).ready(function () {
+        $('#submit').attr('disabled', 'disabled');
+        $('.chk1').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#submit').removeAttr('disabled');
+                }
+                else {
+                    var isChecked = false;
+                    $('.chk1').each(function () {
+                        if ($(this).is(":checked")) {
+                            $('#submit').removeAttr('disabled');
+                            isChecked = true;
+                        }
+                    });
+                    if (!isChecked) {
+                        $('#submit').attr('disabled', 'disabled');
+                    }
+                }
+ 
+ 
+            })
+    });
+
+	</script>
+
+</body>
+</main>
+</html>

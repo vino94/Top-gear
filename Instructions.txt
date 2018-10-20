@@ -1,0 +1,15 @@
+/**First install http-server since it is required for cross-linking via routing**/
+npm install -g http-server
+
+/**Now open http server in the current path**/
+http-server -o
+
+/**The following appears**/
+Starting up http-server, serving ./
+Available on:
+  http://192.168.43.103:8080
+  http://127.0.0.1:8080
+Hit CTRL-C to stop the server
+
+/**Copy one of the links to your browser and open Assignment7.html file**/
+tada

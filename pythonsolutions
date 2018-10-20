@@ -1,0 +1,259 @@
+Python L1 Assignment Solution: 
+
+Solution 1: 
+
+[0, 1, 2, 3] 
+
+[0, 1, 2, 3, 4] 
+
+[0, 1, 2, 3, 4] 
+
+[0, 1, 2, 3, 4] 
+
+Explanation: In seclist = mylist[:], seclist gets a copy of mylist. 
+
+ 
+
+Solution 2: 
+
+0 
+
+1 
+
+8 
+
+27 
+
+64 
+
+125 
+
+Explanation: Yield is like a return keyword and it returns a generator 
+
+ 
+
+Solution 3: 
+
+def f(): 
+
+l = raw_input() 
+
+count = 0 
+
+for ch in l: 
+
+if ch == 'e': 
+
+count = count+1 
+
+if count == 2: 
+
+return True 
+
+else:  
+
+return False 
+
+print f() 
+
+ 
+
+Solution 4: 
+
+None 
+
+7 
+
+Explanation: global keyword changes counter value globally 
+
+ 
+
+Solution 5: 
+
+infile = open("input.txt","r") 
+
+outfile = open("output.txt","w") 
+
+outfile.write('') 
+
+outfile = open("output.txt","a") 
+
+k=0 
+
+for line in infile: 
+
+k=k+1 
+
+char = 0 
+
+word = 1 
+
+for i in line: 
+
+char = char + 1 
+
+if(i==' '): 
+
+word = word + 1 
+
+outfile.write("Line #: "+str(k)+" No. of characters: "+str(char)+", No. of words: "+str(word)+'\n') 
+
+ 
+
+Solution 6: 
+
+l1 = [1,2,3] 
+
+l2 = [4,5,6] 
+
+l3 = [7,8,9] 
+
+l4 = [] 
+
+l1.sort() 
+
+l2.sort() 
+
+l3.sort() 
+
+l4.append(l1[-1]) 
+
+l4.append(l1[-2]) 
+
+l4.append(l2[-1]) 
+
+l4.append(l2[-2]) 
+
+l4.append(l3[-1]) 
+
+l4.append(l3[-2]) 
+
+print l4 
+
+print sum(l4)/len(l4) 
+
+l5 = [] 
+
+l5.append(l1[0]) 
+
+l5.append(l1[1]) 
+
+l5.append(l2[0]) 
+
+l5.append(l2[1]) 
+
+l5.append(l3[0]) 
+
+l5.append(l3[1]) 
+
+print l5 
+
+print sum(l5)/len(l5) 
+
+ 
+
+Solution 7: 
+
+import math 
+
+n = int(raw_input()) 
+
+l = [0,0,0,0] 
+
+x = 3 
+
+while n>8: 
+
+  l[x]=255 
+
+  n=n-8 
+
+  x=x-1 
+
+l[x]=255-math.pow(2,8-n)+1 
+
+print "%d.%d.%d.%d" % (l[3],l[2],l[1],l[0]) 
+
+ 
+
+ 
+
+Solution 8: 
+
+import xml.etree.ElementTree as ET 
+
+tree = ET.parse('country_data.xml') 
+
+root = tree.getroot() 
+
+bookstore = dict() 
+
+books = [] 
+
+bookstore[root.tag] = root.attrib 
+
+bookstore['new_arrivals'] = books 
+
+for child in root: 
+
+  book = dict() 
+
+  book.update(child.attrib) 
+
+  book[root[0][0].tag]=root[0][0].text 
+
+  book[root[0][1].tag]=root[0][1].text 
+
+  book[root[0][2].tag]=root[0][2].text 
+
+  book[root[0][3].tag]=root[0][3].text 
+
+  books.append(book) 
+
+print bookstore  
+
+ 
+
+Solution 9: 
+
+infile = open("input.txt","r") 
+
+outfile = open("output.txt","w")  
+
+outfile = open("output.txt","a")  
+
+l = [] 
+
+ll = ['date','time','zone','size','name'] 
+
+zerofile = [] 
+
+l.append(ll) 
+
+s = 0 
+
+for line in infile: 
+
+  ll=line.split(' ') 
+
+  l.append(ll) 
+
+  s = s+1 
+
+print l 
+
+for i in range(s): 
+
+  if l[i][3]=='0': 
+
+    outfile.write(l[i][4]) 
+
+ 
+
+Solution 10: 
+
+ 
+
+def remove_duplicate(l): 
+
+    return list(set(l)) 
